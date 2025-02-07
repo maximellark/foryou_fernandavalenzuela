@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta San Valentín</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff0f6;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #e63946;
+        }
+        button {
+            background-color: #e63946;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #f1a7b2;
+        }
+        .question-container {
+            display: none;
+        }
+        .hearts {
+            font-size: 50px;
+            color: #ff4d88;
+        }
+    </style>
+</head>
+<body>
+    <h1>Perdón por hacerte abrir otro link, pero soy nuevo en esto jajajaj, pero volvamos a lo nuestro...</h1>
+    <p>Has llegado bastante lejos, Feñita, pero este es solo el comienzo de esta hermosa aventura juntos. Por eso, quedan 3 preguntas más.</p>
+    <button onclick="startQuestions()">Hazme lo que quieras bb</button>
+
+    <div id="question1" class="question-container">
+        <h2>Cual ha sido tu momento favorito?</h2>
+        <textarea id="answer1" rows="4" cols="50"></textarea><br><br>
+        <button onclick="nextQuestion1()">Este segurísima que sí</button>
+    </div>
+
+    <div id="question2" class="question-container">
+        <h2>Qué elección más acertada, señorita, y por eso mismo me gustaría saber.... ¿cuánto me quieres?</h2>
+        <button onclick="nextQuestion2('La nada misma')">La nada misma</button>
+        <button onclick="nextQuestion2('Normalito')">Normalito</button>
+        <button onclick="nextQuestion2('Mucho')">Mucho</button>
+        <button onclick="nextQuestion2('Extremadamente muchisimooooooo')">Extremadamente muchisimooooooo</button>
+    </div>
+
+    <div id="question3" class="question-container">
+        <h2>BB definitivamente sí, has llegado hasta aquí. No es casualidad, como tampoco creo que lo fue el hecho de conocernos, por eso quiero hacerte mi última y más importante pregunta....</h2>
+        <button onclick="nextQuestion3()">YAPOOOOO QUE ME DA ANSIEDAD</button>
+    </div>
+
+    <div id="final" class="question-container">
+        <h2 class="hearts">💖💖💖</h2>
+        <h2>Querida Fernanda Josefa Valenzuela Riquelme, de 24 años, 7 meses y 23 días, Administradora pública de profesión y dueña de mi corazón y mi razón...</h2>
+        <h2>Este 14 de febrero del presente año, ¿Quieres ser mi San Valentín?</h2>
+        <button onclick="finalAnswer('Sí')">Sí</button>
+        <button onclick="finalAnswer('No')">No</button>
+    </div>
+
+    <div id="end" class="question-container">
+        <h2>ESOOOOOO, bienvenida al primero de muchos "Sí" de nuestro viaje. Toma asiento, ponte muy cómoda y disfruta este nuevo y hermoso camino juntos. Te ama, tu Maximiliano.</h2>
+    </div>
+
+    <script>
+        function startQuestions() {
+            document.querySelector('button').style.display = 'none';
+            document.getElementById('question1').style.display = 'block';
+        }
+
+        function nextQuestion1() {
+            var answer1 = document.getElementById('answer1').value;
+            console.log('Respuesta 1:', answer1);
+            document.getElementById('question1').style.display = 'none';
+            document.getElementById('question2').style.display = 'block';
+        }
+
+        function nextQuestion2(answer) {
+            console.log('Respuesta 2:', answer);
+            if (answer === 'Extremadamente muchisimooooooo') {
+                document.getElementById('question2').style.display = 'none';
+                document.getElementById('question3').style.display = 'block';
+            }
+        }
+
+        function nextQuestion3() {
+            document.getElementById('question3').style.display = 'none';
+            document.getElementById('final').style.display = 'block';
+        }
+
+        function finalAnswer(answer) {
+            if (answer === 'Sí') {
+                document.getElementById('final').style.display = 'none';
+                document.getElementById('end').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
